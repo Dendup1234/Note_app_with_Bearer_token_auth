@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student: one
+  internship: one
+  cover_note: MyText
+  status: 1
+  status_changed_by: one
+  status_changed_at: 2026-07-04 00:10:20
+
+two:
+  student: two
+  internship: two
+  cover_note: MyText
+  status: 1
+  status_changed_by: two
+  status_changed_at: 2026-07-04 00:10:20

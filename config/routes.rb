@@ -23,10 +23,25 @@ Rails.application.routes.draw do
       patch "recruiter/internships/:id", to: "recruiter_internships#update"
       patch "recruiter/internships/:id/close", to: "recruiter_internships#close"
       delete "recruiter/internships/:id", to: "recruiter_internships#destroy"
+      # public/student internship browsing
+      get "internships", to: "internships#index"
+      get "internships/:id", to: "internships#show"
       # Student routes
       get "student/profile" ,to: "student_profiles#show"
       patch "student/profile", to: "student_profiles#update"
       get "student/dashboard", to: "student_dashboard#index"
+      #Resume student routes
+      get "student/resume", to: "student_resumes#show"
+      patch "student/resume", to: "student_resumes#update"
+      delete "student/resume", to: "student_resumes#destroy"
+      # Application student routes
+      post "internships/:internship_id/applications", to: "applications#create"
+      get "student/applications", to: "applications#index"
+      patch "student/applications/:id/withdraw", to: "applications#withdraw"
+      # Application recruiter routes
+      get "recruiter/internships/:internship_id/applications", to: "recruiter_applications#index"
+      get "recruiter/applications/:id", to: "recruiter_applications#show"
+      patch "recruiter/applications/:id/status", to: "recruiter_applications#update_status"
       # Authentication routes
       post "register", to: "auth#register"
       post "login", to: "auth#login"

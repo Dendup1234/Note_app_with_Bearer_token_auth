@@ -1,5 +1,8 @@
 class Internship < ApplicationRecord
   belongs_to :company
+
+  has_many :applications, dependent: :destroy
+  
   enum :mode, {
     remote: 0,
     on_site: 1,
