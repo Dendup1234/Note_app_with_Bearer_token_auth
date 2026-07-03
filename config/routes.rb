@@ -8,22 +8,25 @@ Rails.application.routes.draw do
   # Authentication routes
   namespace :api do
     namespace :v1 do
-
       # Company routes
       get "recruiter/company", to: "companies#show"
       post "recruiter/company", to: "companies#create"
       patch "recruiter/company", to: "companies#update"
-      
       # Recruiter routes
       get "recruiter/profile",to: "recruiter_profiles#show"
       patch "recruiter/profile", to: "recruiter_profiles#update"
       get "recruiter/dashboard", to: "recruiter_dashboard#index"
-
+      #intership routes for recruiter
+      get "recruiter/internships", to: "recruiter_internships#index"
+      post "recruiter/internships", to: "recruiter_internships#create"
+      get "recruiter/internships/:id", to: "recruiter_internships#show"
+      patch "recruiter/internships/:id", to: "recruiter_internships#update"
+      patch "recruiter/internships/:id/close", to: "recruiter_internships#close"
+      delete "recruiter/internships/:id", to: "recruiter_internships#destroy"
       # Student routes
       get "student/profile" ,to: "student_profiles#show"
       patch "student/profile", to: "student_profiles#update"
       get "student/dashboard", to: "student_dashboard#index"
-
       # Authentication routes
       post "register", to: "auth#register"
       post "login", to: "auth#login"

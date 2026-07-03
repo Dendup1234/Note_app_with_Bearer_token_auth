@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_07_03_153821) do
+ActiveRecord::Schema[8.1].define(version: 2026_07_03_164515) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -22,6 +22,21 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_03_153821) do
     t.datetime "updated_at", null: false
     t.string "website"
     t.index ["recruiter_id"], name: "index_companies_on_recruiter_id"
+  end
+
+  create_table "internships", force: :cascade do |t|
+    t.date "application_deadline"
+    t.bigint "company_id", null: false
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.integer "duration_weeks"
+    t.string "location"
+    t.integer "mode"
+    t.decimal "monthly_stipend"
+    t.integer "status"
+    t.string "title"
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_internships_on_company_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,4 +52,5 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_03_153821) do
   end
 
   add_foreign_key "companies", "users", column: "recruiter_id"
+  add_foreign_key "internships", "companies"
 end
