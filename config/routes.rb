@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   # Authentication routes
   namespace :api do
     namespace :v1 do
+      get "student/profile" ,to: "student_profiles#show"
+      patch "student/profile", to: "student_profiles#update"
       get "recruiter/dashboard", to: "recruiter_dashboard#index"
       get "student/dashboard", to: "student_dashboard#index"
       post "register", to: "auth#register"
