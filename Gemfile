@@ -55,6 +55,8 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   gem "dotenv-rails"
+  gem "bcrypt", "~> 3.1.7"
+  gem "jwt"
 end
 
 group :development do
